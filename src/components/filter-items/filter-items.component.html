@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-end align-items-end">
+    <div class="pe-2">
+        <label for="filter" class="form-label">Items filter: </label>
+        <select name="filter" id="filter" 
+                class="col-md-4 col-6 form-select" style="font-size: small;" 
+                [(ngModel)]="orderBy"
+                (ngModelChange)="sendSelectedOption()">
+            @for (option of orderOptions; track $index) {
+                <option [value]="$index">{{option.option}}</option>
+            }
+        </select>
+    </div>
+    <div class="">
+        <button type="submit" class="btn btn-outline-primary" (click)="onSubmitFilter()">
+            <i class="bi bi-funnel-fill"></i><span class="d-none d-md-inline">Apply</span>
+        </button>
+    </div>
+</div>

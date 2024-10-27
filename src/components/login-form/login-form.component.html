@@ -1,0 +1,44 @@
+<div class="login-form p-4" >
+    <form (submit)="sendLoginRequest($event)" class="needs-validated d-flex flex-column" id="login-form" novalidate>
+        <div class="card-title">
+            <h1 class="login-title">Turism App Login</h1>
+        </div>
+        <div class="pb-2 border-2 border-bottom">
+            <label for="user-type" class="form-label">User Type: </label>
+            <select name="user-type" id="user-type" class="form-select bg-light">
+                <option value="C" selected>City Administrator</option>
+                <option value="E">Bussines Administrator</option>
+            </select>
+        </div>
+        <div>
+            <label for="username" class="form-label">Username: </label>
+            <input type="text" placeholder="Username" name="username" id="username" class="form-control" [(ngModel)]="loginBody.username" [disabled]="disabledForm" required>
+            <div class="invalid-feedback">
+                Empty username !!!
+            </div>
+        </div>
+        <div>
+            <label for="password" class="form-label">Password: </label>
+            <input type="password" placeholder="Password" name="password" id="password" class="form-control" [(ngModel)]="loginBody.password" [disabled]="disabledForm" required>
+            <div class="invalid-feedback">
+                Empty password !!!
+            </div>
+        </div>
+        <div class="flex align-self-end my-2 me-1">
+            <input type="submit" value="Login" id="login-button" class="btn btn-primary px-3" [disabled]="disabledForm">
+        </div>
+
+        <div class="error-banner alert alert-danger" [hidden]="errorBannerHidden">
+            <p>{{errorMessage}}</p>
+        </div>
+
+        <div class="alert alert-success" [hidden]="successBanner">
+            <p>User succesfully logged!!.</p>
+        </div>
+        
+    </form>
+    <div class="login-footer border-top border-2 pt-3 d-flex flex-wrap justify-content-around">
+        <a href="#" id="pass-recov" target="_blank" class="col text-center">Forgot password</a>
+        <a routerLink="../register" routerLinkActive="active" id="registration" class="col text-center">Create account</a>
+    </div>
+</div>

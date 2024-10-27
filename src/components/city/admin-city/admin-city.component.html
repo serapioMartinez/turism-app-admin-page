@@ -1,0 +1,91 @@
+<div class="m-3 px-3 admin-city">
+    <div class="row border-bottom border-3 border-secondary">
+        <h1>City Information - Administrations Page</h1>
+    </div>
+    <div class="row city-form m-1">
+        <div class="col form-check form-switch fs-4 ">
+            <div class="float-end">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                    [checked]="!formDisabled" (click)="(formDisabled = !formDisabled)">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Enable form</label>
+            </div>
+        </div>
+        <form class="was-validated fs-5" novalidate (submit)="submitForm($event)">
+            <div class="row justify-content-end align-items-end">
+                <div class="col-6 col-md-3">
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name" placeholder="City name" class="form-control" required
+                        [(ngModel)]="city.nombreCiudad" [disabled]="formDisabled">
+                </div>
+                <div class="col-6 col-md-3">
+                    <label for="">Region: </label>
+                    <select name="region" id="region" class="form-select" required [(ngModel)]="city.region" [disabled]="formDisabled">
+                        @for (region of regions; track region.region) {
+                            <option [value]="region.region">{{region.description}}</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-8 col-md-3">
+                    <label for="town">Town: </label>
+                    <input type="text" name="town" id="town" placeholder="Town name" class="form-control" required
+                        [(ngModel)]="city.municipio" [disabled]="formDisabled">
+                </div>
+                <div class="col-8 col-md-5">
+                    <label for="mail">E-Mail: </label>
+                    <input type="text" name="mail" id="mail" placeholder="example@mail.com" class="form-control"
+                        required [(ngModel)]="city.correo" [disabled]="formDisabled">
+                </div>
+                <div class="col-5 col-md-3">
+                    <label for="phone">Phone number: </label>
+                    <input type="tel" name="phone" id="phone" placeholder="000 000 0000" class="form-control" required
+                        [(ngModel)]="city.telefono" [disabled]="formDisabled">
+                </div>
+                <div class="col-5 col-md-3">
+                    <label for="emergency">Emergency number: </label>
+                    <input type="tel" name="emergency" id="emergency" placeholder="000 000 0000" class="form-control"
+                        required [(ngModel)]="city.emergencias" [disabled]="formDisabled">
+                </div>
+                <div class="col-4 col-md-2">
+                    <label for="score">Score: </label>
+                    <input type="number" name="score" id="score" class="form-control" required
+                        [(ngModel)]="city.calificacion" disabled>
+                </div>
+                <div class="col-4 col-md-2">
+                    <label for="scored">Scored by: </label>
+                    <input type="number" name="scored" id="scored" class="form-control" required
+                        [(ngModel)]="city.cantidadCalificaciones" disabled>
+                </div>
+                <div class="col-10">
+                    <label for="maps">Google Maps URL: </label>
+                    <input type="text" name="maps" id="maps" placeholder="https://maps.app.goo.gl/XapkpC6Rebe2u34g9"
+                        class="form-control" [(ngModel)]="city.urlMaps" [disabled]="formDisabled">
+                </div>
+                <div class="col-10">
+                    <label for="tourismType">Tourism Type: </label>
+                    <select class="form-select" name="tourismType" id="tourismType" multiple [(ngModel)]="city.tipoTurismo" [disabled]="formDisabled">
+                        @for (tourismType of tourismTypes; track tourismType.idTipo) {
+                            <option value="{{tourismType.idTipo}}">{{tourismType.tipoTurismo}}</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-12 mt-2">
+                    <div class="float-end">
+                        <input type="checkbox" name="special" id="special" class="form-check-input me-1" required
+                            [(ngModel)]="city.puebloMagico" [disabled]="formDisabled">
+                        <label for="special">&lt;= Magic Town</label>
+                    </div>
+                </div>
+                <div class="col-10">
+                    <label for="description">Description: </label>
+                    <textarea name="description" id="description" placeholder="Description for city"
+                        class="form-control" [disabled]="formDisabled" [(ngModel)]="city.descripcion"></textarea>
+                </div>
+            </div>
+            <div class="row p-2 justify-content-end">
+                <input class="btn btn-primary col-8 col-md-2" type="submit" value="Submit" [disabled]="formDisabled">
+            </div>
+        </form>
+    </div>
+    <div class="row m-auto">
+    </div>
+</div>

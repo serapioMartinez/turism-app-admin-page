@@ -1,0 +1,248 @@
+{
+    "regiones": [
+        {
+            "region": "CN",
+            "description": "Sierra de Flores Magón"
+        },
+        {
+            "region": "CT",
+            "description": "Costa"
+        },
+        {
+            "region": "IT",
+            "description": "ITSMO de Tehuantepec"
+        },
+        {
+            "region": "MX",
+            "description": "Mixteca"
+        },
+        {
+            "region": "PP",
+            "description": "Papaloapan"
+        },
+        {
+            "region": "SS",
+            "description": "Sierra Sur"
+        },
+        {
+            "region": "SN",
+            "description": "Sierra Norte"
+        },
+        {
+            "region": "VC",
+            "description": "Valles Centrales"
+        }
+    ],
+    "tipoEstablecimiento": [
+        {
+            "tipo": "NT",
+            "tipoTurismo": "NO HAY TIPO"
+        },
+        {
+            "tipo": "RS",
+            "tipoTurismo": "RESTAURANTE"
+        },
+        {
+            "tipo": "HT",
+            "tipoTurismo": "HOTEL"
+        },
+        {
+            "tipo": "TR",
+            "tipoTurismo": "TRANSPORTE"
+        },
+        {
+            "tipo": "MR",
+            "tipoTurismo": "MERCADO"
+        },
+        {
+            "tipo": "BN",
+            "tipoTurismo": "BANCO"
+        },
+        {
+            "tipo": "GB",
+            "tipoTurismo": "GOBIERNO"
+        },
+        {
+            "tipo": "SP",
+            "tipoTurismo": "SUPERMERCADO"
+        },
+        {
+            "tipo": "AB",
+            "tipoTurismo": "ABARROTES"
+        }
+    ],
+    "tipoTurismo": [
+        {
+            "idTipo": "NT",
+            "tipoTurismo": "NO HAY TIPO"
+        },
+        {
+            "idTipo": "AV",
+            "tipoTurismo": "AVENTURA"
+        },
+        {
+            "idTipo": "DP",
+            "tipoTurismo": "DEPORTE"
+        },
+        {
+            "idTipo": "NG",
+            "tipoTurismo": "NEGOCIOS"
+        },
+        {
+            "idTipo": "CL",
+            "tipoTurismo": "CULTURAL"
+        },
+        {
+            "idTipo": "GS",
+            "tipoTurismo": "GASTRONOMICO"
+        },
+        {
+            "idTipo": "AQ",
+            "tipoTurismo": "ARQUEOLICO"
+        },
+        {
+            "idTipo": "SL",
+            "tipoTurismo": "SALUD"
+        },
+        {
+            "idTipo": "RL",
+            "tipoTurismo": "RURAL"
+        },
+        {
+            "idTipo": "EC",
+            "tipoTurismo": "ECOLOGICO"
+        },
+        {
+            "idTipo": "ES",
+            "tipoTurismo": "ESPIRITUAL"
+        }
+    ],
+    "orderMealsOptions": [
+        {
+            "orderBy": "idPlatillo",
+            "ascending": true,
+            "option": "ID A-Z"
+        },
+        {
+            "orderBy": "idPlatillo",
+            "ascending": false,
+            "option": "ID Z-A"
+        },
+        {
+            "orderBy": "nombre",
+            "ascending": true,
+            "option": "Nombre A-Z"
+        },
+        {
+            "orderBy": "nombre",
+            "ascending": false,
+            "option": "Nombre Z-A"
+        }
+    ],
+    "orderCharactersOptions": [
+        {
+            "orderBy": "idPersonaje",
+            "ascending": true,
+            "option": "ID A-Z"
+        },
+        {
+            "orderBy": "idPersonaje",
+            "ascending": false,
+            "option": "ID Z-A"
+        },
+        {
+            "orderBy": "nombre",
+            "ascending": true,
+            "option": "Name A-Z"
+        },
+        {
+            "orderBy": "nombre",
+            "ascending": false,
+            "option": "Name Z-A"
+        },
+        {
+            "orderBy": "anhoNacimiento",
+            "ascending": true,
+            "option": "Birth A-Z"
+        },
+        {
+            "orderBy": "anhoNacimiento",
+            "ascending": false,
+            "option": "Birth Z-A"
+        }
+    ],
+    "orderPlacesOptions": [
+        {
+            "orderBy": "idZona",
+            "ascending": true,
+            "option": "ID A-Z"
+        },
+        {
+            "orderBy": "idZona",
+            "ascending": false,
+            "option": "ID Z-A"
+        },
+        {
+            "orderBy": "nombre",
+            "ascending": true,
+            "option": "Nombre A-Z"
+        },
+        {
+            "orderBy": "nombre",
+            "ascending": false,
+            "option": "Nombre Z-A"
+        },
+        {
+            "orderBy": "tipoZona",
+            "ascending": true,
+            "option": "Tipo A-Z"
+        },
+        {
+            "orderBy": "tipoZona",
+            "ascending": false,
+            "option": "Tipo Z-A"
+        }
+    ],
+    "tipoZona": [
+        {
+            "tipo": "AV",
+            "descripcion": "AVENTURA"
+        },
+        {
+            "tipo": "DP",
+            "descripcion": "DEPORTE"
+        },
+        {
+            "tipo": "NG",
+            "descripcion": "NEGOCIOS"
+        },
+        {
+            "tipo": "CL",
+            "descripcion": "CULTURAL"
+        },
+        {
+            "tipo": "GS",
+            "descripcion": "GASTRONOMICO"
+        },
+        {
+            "tipo": "AQ",
+            "descripcion": "ARQUEOLICO"
+        },
+        {
+            "tipo": "SL",
+            "descripcion": "SALUD"
+        },
+        {
+            "tipo": "RL",
+            "descripcion": "RURAL"
+        },
+        {
+            "tipo": "EC",
+            "descripcion": "ECOLOGICO"
+        },
+        {
+            "tipo": "ES",
+            "descripcion": "ESPIRITUAL"
+        }
+    ]
+}

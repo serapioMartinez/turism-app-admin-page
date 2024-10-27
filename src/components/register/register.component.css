@@ -1,0 +1,28 @@
+.register-form{
+    box-sizing: border-box;
+    background-color: rgba(237, 233, 230, 0.555);
+    width: fit-content;
+    border-radius: 8% 0 8% 0;
+}
+
+input{
+    width: 100%;
+}
+
+a[routerLink]{
+    text-decoration: none;
+    font-size: large;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    border-radius: 2%;
+}
+a:hover{
+    background-color: rgba(182, 162, 111, 0.529);
+}
+
+@media screen and (max-width: 800px) {
+    .register-form{
+        width: 30em;
+    }
+}
+

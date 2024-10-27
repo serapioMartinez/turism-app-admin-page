@@ -1,0 +1,54 @@
+<section class="m-3 px-3">
+    <div
+        class="d-flex flex-wrap pb-2 border-bottom border-3 border-secondary justify-content-end justify-content-md-between align-items-end">
+        <h1 class="pe-2">City Characters Administration</h1>
+        <app-filter-items 
+            (optionSelected)="setFilterOptionSelected($event)" 
+            (applyFilter)="applyFilter($event)"
+            [orderOptions]="orderOptions"></app-filter-items>
+    </div>
+    <div class="row p-2 mt-2 border border-2 rounded border-secondary form-item">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+            <h3>Character Data: </h3>
+            <button class="btn btn-outline-success fs-5 add-item"
+                (click)="onClickAddNewItem($event)">
+                <i class="bi bi-node-plus-fill fs-1"></i><i class=""></i> Add new item
+            </button>
+        </div>
+        <ng-container
+            [ngComponentOutlet]="provideFormType()"
+            [ngComponentOutletInputs]="provideFormInputs()">
+        </ng-container>
+    </div>
+    <div class="row justify-content-center my-2">
+        @for (item of items; track $index) {
+            <ng-container 
+                [ngComponentOutlet]="provideItemRow()"
+                [ngComponentOutletInputs]="provideComponentInputs(item)">
+            </ng-container>
+        }
+    </div>
+    <div class="col">
+        <ul class="pagination float-end">
+            <li class="page-item">
+                <a class="page-link" (click)="chargePreviousPage()"
+                    aria-label="Previous" id="previous-page-link">
+                    <i class="bi bi-caret-left-fill"></i>
+                </a>
+            </li>
+            @for (num of counter(pages()); track $index) {
+            <li [className]="'page-item '.concat(($index+1 == page())?'active':'')" 
+                (click)="chargePage($index+1)"
+                aria-current="page">
+                <a class="page-link">{{$index+1}}</a>
+            </li>
+            }
+            <li class="page-item">
+                <a class="page-link" (click)="chargeNextPage()"
+                    aria-label="Next" id="next-page-link">
+                    <i class="bi bi-caret-right-fill"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>

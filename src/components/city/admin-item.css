@@ -1,0 +1,9 @@
+.form-item {
+    background-color: rgba(132, 215, 195, 0.3);
+}
+
+.add-item {
+    text-align: center;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+}

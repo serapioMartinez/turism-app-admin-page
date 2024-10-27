@@ -1,1 +1,91 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100vh;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url('../public/bg-capulalpam.jpg');
+}
+
+body::before {
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  display: block;
+  position: fixed;
+  opacity: 0.75;
+  content: "";
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  background-size: cover;
+  background-color: rgb(255, 255, 255);
+}
+
+.blinker {
+
+  animation-name: blinking;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name: blinking;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+nav{
+  background: linear-gradient(65deg, rgba(16, 42, 85, 0.95) 30%, rgba(54, 81, 150, 0.95) 75%);
+}
+footer {
+  bottom: 0;
+  height: fit-content;
+  padding: 0.5rem;
+  width: 100%;
+  background: linear-gradient(65deg, rgba(5, 32, 78, 0.95) 30%, rgba(54, 81, 150, 0.95) 75%);;
+}
+
+@-moz-keyframes blinking {
+  0% {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@-webkit-keyframes blinking {
+  0% {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}

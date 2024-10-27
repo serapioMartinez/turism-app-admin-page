@@ -1,0 +1,11 @@
+<li class="nav-item dropdown w-100 d-flex justify-content-end flex-wrap">
+    <div class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <i class="bi bi-person-circle fs-4">&nbsp;{{username}}</i>
+    </div>
+    <ul class="dropdown-menu w-100" aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item text-end" href="#">Action</a></li>
+        <li><a class="dropdown-item text-end" href="#">Another action</a></li>
+        <li><span class="dropdown-item text-end" (click)="logout()"><i class="bi bi-box-arrow-left me-2 mt-1"></i>Logout</span></li>
+    </ul>
+</li>
