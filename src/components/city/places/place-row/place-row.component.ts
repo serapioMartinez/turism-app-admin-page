@@ -9,9 +9,7 @@ import { tipoZona } from '../../../../assets/application-data.json'
   templateUrl: './place-row.component.html',
   styleUrl: '../../row-style.css'
 })
-export class PlaceRowComponent implements OnInit{
-  ngOnInit(): void {
-  }
+export class PlaceRowComponent{
 
   readonly mapZonas = this.createMap();
   

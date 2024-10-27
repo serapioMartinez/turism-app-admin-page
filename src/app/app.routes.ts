@@ -9,7 +9,7 @@ import { PrincipalPageComponent } from '../pages/principal-page/principal-page.c
 import { ErrorPageComponent } from '../pages/error-page/error-page.component';
 import { GetUserCityService } from '../services/get-user-city.service';
 import { AdminCityComponent } from '../components/city/admin-city/admin-city.component';
-import { AdminCityCharactersComponent } from '../components/city/admin-city-characters/admin-city-characters.component';
+import { AdminCityCharactersComponent } from '../components/city/characters/admin-city-characters/admin-city-characters.component';
 import { AdminCityMealsComponent } from '../components/city/admin-city-meals/admin-city-meals.component';
 import { AdminCityEstablishmentsComponent } from '../components/city/admin-city-establishments/admin-city-establishments.component';
 import { GetCityCharactersService } from '../services/get-city-characters.service';
