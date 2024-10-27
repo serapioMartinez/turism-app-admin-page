@@ -72,9 +72,9 @@ export class AdminCityCharactersComponent extends AbstractAdminCityItems {
   }
 
   provideFormType() {
-    throw FormCharacterComponent;
+    return FormCharacterComponent;
   }
-  
+
   provideFormInputs() {
     return {
       "character": this.character,
@@ -91,17 +91,19 @@ export class AdminCityCharactersComponent extends AbstractAdminCityItems {
     this.toogleForm(true);
   }
 
-  async chargePage(page: number): Promise<void>{
-    this.page = page;
-    const res = await firstValueFrom(
-      this.http.getUserCityCharacters(page, this.orderOptions[this.selectedOption])
-    );
-    if (res.ok) {
-      this.characters = <CharacterEntity[]>res.body;
+  async chargePage(page: number): Promise<void> {
+    if (page > 0 && page <= this.getMaxPages()) {
+      const res = await firstValueFrom(
+        this.http.getUserCityCharacters(page, this.orderOptions[this.selectedOption])
+      );
+      if (res.ok) {
+        this.characters = <CharacterEntity[]>res.body;
+        this.page = page;
+      }
     }
   }
 
-  private characterFieldsAreValid():boolean{
+  private characterFieldsAreValid(): boolean {
     let result = true;
     let input = <HTMLInputElement>document.getElementById("name");
     Validations.validateText(input) ? 1 == 1 : result = false;

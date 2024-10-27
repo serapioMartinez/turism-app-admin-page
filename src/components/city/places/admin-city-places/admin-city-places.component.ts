@@ -45,26 +45,26 @@ export class AdminCityPlacesComponent extends AbstractAdminCityItems{
   }
 
   onClickAddNewItem(item: PlaceEntity): void {
-    if (this.place.nombre != null) {
+    if (this.item.nombre != null) {
       let confirmation = window.confirm("You have unsaved data. Continue without saving data?");
       if (!confirmation) return;
     }
-    Object.assign(this.place, item ? item : <PlaceEntity>{});
+    Object.assign(this.item, item ? item : <PlaceEntity>{});
     this.toogleForm(true);
   }
   
   async onSubmitItemData(): Promise<void> {
     if(this.fieldsAreValid()){
-      const res = await firstValueFrom(this.http.postCityPlace(this.place));
+      const res = await firstValueFrom(this.http.postCityPlace(this.item));
       if(res.ok){
-        this.place = <PlaceEntity>res.body;
+        this.item = <PlaceEntity>res.body;
         let index = this.places.findIndex( (p) => {
-          return p.idZona === this.place.idZona;
+          return p.idZona === this.item.idZona;
         })
-        if(index<0) this.places = [this.place, ...this.places];
-        else this.places[index] = this.place;
+        if(index<0) this.places = [this.item, ...this.places];
+        else this.places[index] = this.item;
 
-        this.place = <PlaceEntity>{};
+        this.item = <PlaceEntity>{};
       }
     }
   }
@@ -72,21 +72,11 @@ export class AdminCityPlacesComponent extends AbstractAdminCityItems{
   provideItemRow() {
     return PlaceRowComponent;
   }
-  provideRowInputs(item: PlaceEntity) {
-    return {
-      "place": item,
-      "onClickEditItem": () => this.onClickEditItem(item)
-    }
-  }
+  
   provideFormType() {
     return FormPlaceComponent;
   }
-  provideFormInputs() {
-    return {
-      "place": this.place,
-      "submitAction": () => this.onSubmitItemData()
-    }
-  }
+
   async chargePage(page: number = 1): Promise<void> {
     if(page>0 && page<=this.getMaxPages()){
       const res = await firstValueFrom(this.http.getCityPlaces(page, orderPlacesOptions[this.selectedOption]));
@@ -113,7 +103,7 @@ export class AdminCityPlacesComponent extends AbstractAdminCityItems{
 
   
   places: Array<PlaceEntity> = [];
-  place: PlaceEntity = <PlaceEntity>{};
+  override item: PlaceEntity = <PlaceEntity>{};
   orderOptions = orderPlacesOptions;
 
 

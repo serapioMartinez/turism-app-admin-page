@@ -49,13 +49,24 @@ export abstract class AbstractAdminCityItems implements IAdminCityItem {
     abstract onSubmitItemData(): void;
     abstract chargePage(page: number): void;
     abstract provideItemRow(): any;
-    abstract provideRowInputs(item: any): any;
+    provideRowInputs(item: any): any{
+        return {
+            "item": item,
+            "onClickEditItem": () => this.onClickEditItem(item)
+          }
+    }
     abstract provideFormType(): any;
-    abstract provideFormInputs(): any;
+    provideFormInputs(): any{
+        return {
+            "item": this.item,
+            "submitAction": () => this.onSubmitItemData()
+          }
+    }
 
     protected page: number = 0;
     protected count: number = 0;
     protected limit: number = 10;
+    protected item: any;
 
     protected selectedOption: number = 0;
 
