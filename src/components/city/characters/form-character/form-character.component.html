@@ -5,23 +5,23 @@
             <div class="col-12 col-md-6 fs-4">
                 <label for="name">Character Name:</label>
                 <input type="text" name="name" id="name" class="form-control" placeholder="Known character name"
-                    required [(ngModel)]="character.nombre">
+                    required [(ngModel)]="item.nombre">
             </div>
             <div class="col-6 col-md-3 fs-4">
                 <label for="birth">Birth Year:</label>
                 <input type="text" name="birth" id="birth" class="form-control" placeholder="2000"
-                    [(ngModel)]="character.anhoNacimiento">
+                    [(ngModel)]="item.anhoNacimiento">
             </div>
             <div class="col-6 col-md-3 fs-4">
                 <label for="death">Death Year:</label>
                 <input type="text" name="death" id="death" class="form-control" placeholder="2000"
-                    [(ngModel)]="character.anhoFallecimiento">
+                    [(ngModel)]="item.anhoFallecimiento">
             </div>
             <div class="col-12 fs-4">
                 <label for="desc">Description:</label>
                 <textarea type="text" name="desc" id="desc" class="form-control"
                     placeholder="Character description. E.g. - Character biography" required
-                    [(ngModel)]="character.descripcion"></textarea>
+                    [(ngModel)]="item.descripcion"></textarea>
             </div>
             <div class="col my-3">
                 <button type="submit" class="btn btn-outline-success float-end fs-5"><strong><i

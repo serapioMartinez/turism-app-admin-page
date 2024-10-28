@@ -6,13 +6,13 @@
             <div class="col-12 col-md-8 fs-4">
                 <label for="name">Touristic Place Name:</label>
                 <input type="text" name="name" id="name" class="form-control" placeholder="Known Place name"
-                    required [(ngModel)]="place.nombre">
+                    required [(ngModel)]="item.nombre">
             </div>
             <div class="col-12 col-md-4 fs-4">
                 <label for="type">Zone Type:</label>
                 <select 
                     name="type" id="type" class="form-select" required
-                    [(ngModel)]="place.tipoZona">
+                    [(ngModel)]="item.tipoZona">
                     @for (type of tipoZona; track $index) {
                         <option value="{{type.tipo}}">{{type.descripcion}}</option>
                     }
@@ -22,7 +22,7 @@
                 <label for="desc">Description:</label>
                 <textarea type="text" name="desc" id="desc" class="form-control"
                     placeholder="Touristic Zone Description ..." required
-                    [(ngModel)]="place.descripcion"></textarea>
+                    [(ngModel)]="item.descripcion"></textarea>
             </div>
             <div class="col my-3">
                 <button type="submit" class="btn btn-outline-success float-end fs-5"><strong><i

@@ -6,9 +6,9 @@ import { CharacterEntity } from '../../../../classes/entities/Character';
   standalone: true,
   imports: [],
   templateUrl: './character-row.component.html',
-  styles: ``
+  styleUrl: '../../row-style.css'
 })
 export class CharacterRowComponent {
-  @Input() character: CharacterEntity = <CharacterEntity>{};
+  @Input() item: CharacterEntity = <CharacterEntity>{};
   @Input() onClickEditItem: any = () =>{};
 }

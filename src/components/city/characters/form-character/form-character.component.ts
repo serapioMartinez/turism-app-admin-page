@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styles: ``
 })
 export class FormCharacterComponent {
-  @Input() character: CharacterEntity = <CharacterEntity>{};
+  @Input() item: CharacterEntity = <CharacterEntity>{};
 
   @Input() submitAction: any = {};
 

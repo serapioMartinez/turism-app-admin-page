@@ -44,7 +44,7 @@ export class AdminCityCharactersComponent extends AbstractAdminCityItems {
   async onSubmitItemData(): Promise<void> {
     try {
       if (!this.characterFieldsAreValid()) throw Error("Field Validation Error. Please revise your input data")
-      const res = await firstValueFrom(this.http.postUserCityCharacter(this.character));
+      const res = await firstValueFrom(this.http.postUserCityCharacter(this.item));
       if (res.ok) {
         let newCharacter = <CharacterEntity>res.body;
         let chr_index = this.characters.findIndex((chr) => {
@@ -52,7 +52,7 @@ export class AdminCityCharactersComponent extends AbstractAdminCityItems {
         });
         if (chr_index < 0) this.characters = [newCharacter, ...this.characters];
         else this.characters[chr_index] = newCharacter;
-        this.character = <CharacterEntity>{};
+        this.item = <CharacterEntity>{};
 
       }
     } catch (err) {
@@ -64,30 +64,16 @@ export class AdminCityCharactersComponent extends AbstractAdminCityItems {
     return CharacterRowComponent;
   }
 
-  provideRowInputs(item: CharacterEntity) {
-    return {
-      "character": item,
-      "onClickEditItem": () => this.onClickEditItem(item)
-    }
-  }
-
   provideFormType() {
     return FormCharacterComponent;
   }
 
-  provideFormInputs() {
-    return {
-      "character": this.character,
-      "submitAction": () => this.onSubmitItemData()
-    }
-  }
-
   onClickAddNewItem(item: CharacterEntity): void {
-    if (this.character.nombre != null) {
+    if (this.item.nombre != null) {
       let confirmation = window.confirm("You have unsaved data. Continue without saving data?");
       if (!confirmation) return;
     }
-    Object.assign(this.character, item ? item : <CharacterEntity>{});
+    Object.assign(this.item, item ? item : <CharacterEntity>{});
     this.toogleForm(true);
   }
 
@@ -124,7 +110,7 @@ export class AdminCityCharactersComponent extends AbstractAdminCityItems {
   }
 
   characters: Array<CharacterEntity> = [];
-  character: CharacterEntity = <CharacterEntity>{};
+  override item: CharacterEntity = <CharacterEntity>{};
 
   orderOptions = orderCharactersOptions;
 }

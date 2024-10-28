@@ -11,7 +11,7 @@ import { tipoZona } from '../../../../assets/application-data.json'
 })
 export class FormPlaceComponent {
 
-  @Input() place: PlaceEntity = <PlaceEntity>{};
+  @Input() item: PlaceEntity = <PlaceEntity>{};
 
   @Input() submitAction: any = {};
 

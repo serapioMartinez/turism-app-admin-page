@@ -12,11 +12,12 @@ import { Validations } from '../../../../classes/Validations';
 import { AbstractAdminCityItems } from '../../admin-city-item/abs-admin-city-item';
 import { MealRowComponent } from '../meal-row/meal-row.component';
 import { FormMealComponent } from '../form-meal/form-meal.component';
+import { AdminCityItemComponent } from '../../admin-city-item/admin-city-item.component';
 
 @Component({
   selector: 'app-admin-city-meals',
   standalone: true,
-  imports: [FormsModule, FilterItemsComponent],
+  imports: [AdminCityItemComponent],
   templateUrl: './admin-city-meals.component.html',
 })
 export class AdminCityMealsComponent extends AbstractAdminCityItems {
@@ -41,30 +42,25 @@ export class AdminCityMealsComponent extends AbstractAdminCityItems {
 
   async onSubmitItemData(): Promise<void> {
     if (this.mealFieldsAreValid()) {
-      const res: HttpResponse<MealEntity> = await firstValueFrom(this.http.postCityMeal(this.meal));
+      const res: HttpResponse<MealEntity> = await firstValueFrom(this.http.postCityMeal(this.item));
       if (res.ok) {
-        this.meal = <MealEntity>res.body;
+        this.item = <MealEntity>res.body;
         let meal_index = this.meals.findIndex((m) => {
-          return m.idPlatillo == this.meal.idPlatillo;
+          return m.idPlatillo == this.item.idPlatillo;
         });
-        if (meal_index < 0) this.meals = [this.meal, ...this.meals];
-        else this.meals[meal_index] = this.meal;
+        if (meal_index < 0) this.meals = [this.item, ...this.meals];
+        else this.meals[meal_index] = this.item;
 
-        this.meal = <MealEntity>{};
+        this.item = <MealEntity>{};
       }
     }
   }
   override provideItemRow() {
     return MealRowComponent;
   }
-  override provideRowInputs(item: any) {
-    throw new Error('Method not implemented.');
-  }
+
   override provideFormType() {
     return FormMealComponent;
-  }
-  override provideFormInputs() {
-    throw new Error('Method not implemented.');
   }
 
   async chargePage(page: number = 0) {
@@ -78,11 +74,11 @@ export class AdminCityMealsComponent extends AbstractAdminCityItems {
   }
 
   onClickAddNewItem(meal?: MealEntity) {
-    if (this.meal.nombre != null) {
+    if (this.item.nombre != null) {
       let confirmation = window.confirm("You have unsaved data. Continue without saving data?");
       if (!confirmation) return;
     }
-    this.meal = Object.assign(this.meal, meal ? meal : <MealEntity>{});
+    this.item = Object.assign(this.item, meal ? meal : <MealEntity>{});
     this.toogleForm(true)
   }
 
@@ -100,7 +96,8 @@ export class AdminCityMealsComponent extends AbstractAdminCityItems {
   orderOptions = orderMealsOptions;
 
   meals: Array<MealEntity> = [];
-  meal: MealEntity = <MealEntity>{};
+
+  override item: MealEntity = <MealEntity>{};
 
   private http = inject(CiudadRequestService);
 

@@ -21,6 +21,6 @@ export class PlaceRowComponent{
 
     return map;
   }
-  @Input() place: PlaceEntity = <PlaceEntity>{};
+  @Input() item: PlaceEntity = <PlaceEntity>{};
   @Input() onClickEditItem: any = () =>{};
 }
